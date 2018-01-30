@@ -20,17 +20,17 @@ Plotting command for use on an object of class "indelmiss". Will draw two plots:
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@mcmaster.ca}}
+\email{udang@binghamton.edu}}
 \seealso{
 See also \code{\link{indelrates}}, \code{\link{plotrates}} and \code{\link{plotp}}.
 }
 \examples{
-#indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
-#             mu = 1, nu = 5, phyl = 5000,  nmiss = 0, toi = 1, 
-#             bgtype="ancestornodes", bg = c(7, 9), 
-#             zerocorrection = TRUE, rootprob="maxlik",  
-#             modelnames = c("M1", "M2", "M3", "M4"),
-#             optmethod = "nlminb")
-#print(indel)
-#plot(indel, model="M4") 
+indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
+             mu = 1, nu = 5, phyl = 5000,  pmiss = 0, toi = 1, 
+             bgtype="ancestornodes", bg = c(7, 9), 
+             zerocorrection = TRUE, rootprob="maxlik",  
+             modelnames = c("M1", "M2", "M3", "M4"),
+             optmethod = "nlminb")
+print(indel)
+plot(indel, model="M4") 
 }

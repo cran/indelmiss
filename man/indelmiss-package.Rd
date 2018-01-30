@@ -30,7 +30,7 @@ License: \tab GPL (>=2)\cr
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@mcmaster.ca}
+\email{udang@binghamton.edu}
 }
 \references{  
 Eddelbuettel, Dirk and Romain Francois (2011). Rcpp: Seamless R and C++ Integration. Journal of Statistical Software, 40(8), 1--18.

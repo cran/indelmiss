@@ -20,17 +20,17 @@ plotp(x, model, ci = TRUE, cil = 95, ...)
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@mcmaster.ca}}
+\email{udang@binghamton.edu}}
 \seealso{
 See also \code{\link{plot.indelmiss}}.
 }
 \examples{
-#indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
-#             mu = 1, nu = 5, phyl = 5000,  nmiss = 0, toi = 1, 
-#             bgtype="ancestornodes", bg = c(7, 9), 
-#             zerocorrection = TRUE, rootprob = "stationary", 
-#             modelnames = c("M1", "M2", "M3", "M4"),
-#             optmethod = "nlminb")
-#print(indel)
-#plotp(indel, model="M4") 
+indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
+             mu = 1, nu = 5, phyl = 5000,  pmiss = 0, toi = 1, 
+             bgtype="ancestornodes", bg = c(7, 9), 
+             zerocorrection = TRUE, rootprob = "stationary", 
+             modelnames = c("M1", "M2", "M3", "M4"),
+             optmethod = "nlminb")
+print(indel)
+plotp(indel, model="M4") 
 }

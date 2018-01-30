@@ -68,91 +68,92 @@ All arguments used while calling the indelrates function are attached in a list.
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@mcmaster.ca}}
+\email{udang@binghamton.edu}}
 \seealso{
 See also \code{\link{print.indelmiss}}, \code{\link{plot.indelmiss}}, and \code{\link{plottree}}.
 }
 \examples{
 ###User supplied tree and data###
 #Simulate data
-#library(phangorn)
-#set.seed(1)
-#usertree <- rtree(n = 7, br = rbeta(n = 7, shape1 = 1, shape2 = 7))
-#data <- simSeq(usertree, l = 5000, type = "USER", levels = c(0, 1), 
-#bf = c(1/(1 + 5), 5/(1 + 5)), Q = 1) #1 and 5 correspond to 
+library(phangorn)
+set.seed(1)
+usertree <- rtree(n = 7, br = rbeta(n = 7, shape1 = 1, shape2 = 7))
+data <- simSeq(usertree, l = 5000, type = "USER", levels = c(0, 1), 
+bf = c(1/(1 + 5), 5/(1 + 5)), Q = 1) #1 and 5 correspond to 
 #unstandardized rates. See item help descriptions on mu and nu.
-#datab <- matrix(as.numeric(as.character(data)), nrow = 7)
-#userphyl <- t(datab)
+datab <- matrix(as.numeric(as.character(data)), nrow = 7)
+userphyl <- t(datab)
 #Run the models.
-#indel_user <- indelrates(datasource = "user", usertree = usertree, 
-#userphyl = userphyl, toi = 1, zerocorrection = TRUE, rootprob = "stationary", 
-#  modelnames = c("M3", "M4"), optmethod = "nlminb", 
-#control = list(trace = 10))
-#print(indel_user)
+indel_user <- indelrates(datasource = "user", usertree = usertree, 
+userphyl = userphyl, toi = 1, zerocorrection = TRUE, rootprob = "stationary", 
+  modelnames = c("M3", "M4"), optmethod = "nlminb", 
+control = list(trace = 10))
+print(indel_user)
 
 #####Simulation#####
 #Simulate a dataset with default options and run algorithm.
-#indel1 <- indelrates(verbose = TRUE, datasource = "simulation", 
-#control = list(trace = 5))
-#print(indel1)
-
+indel1 <- indelrates(verbose = TRUE, datasource = "simulation", 
+control = list(trace = 5))
+print(indel1)
+\dontrun{
 #Estimate insertion/ deletion rates from gene presence/absence 
 #data simulated on a simulated five taxon tree.
-#indel2 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
-#brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = 0, toi = 1, 
-#zerocorrection = TRUE, rootprob = "stationary", 
-#modelnames = c("M1", "M2", "M3", "M4"), optmethod = "nlminb", 
-#control = list(trace = 5))#1 and 5 correspond to unstandardized rates. 
+indel2 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
+brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = 0, toi = 1, 
+zerocorrection = TRUE, rootprob = "stationary", 
+modelnames = c("M1", "M2", "M3", "M4"), optmethod = "nlminb", 
+control = list(trace = 5))#1 and 5 correspond to unstandardized rates. 
 #See item help descriptions on mu and nu.
-#print(indel2)
+print(indel2)
 
 #With toi="all"
-#indel3 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
-#brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = c(0, 0.15, 0.25, 0, 0), toi = "all", 
-#zerocorrection = TRUE, rootprob = "maxlik", modelnames = c("M3", "M4"),
-#optmethod = "nlminb")
-#print(indel3)
+indel3 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
+brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = c(0, 0.15, 0.25, 0, 0), toi = "all", 
+zerocorrection = TRUE, rootprob = "maxlik", modelnames = c("M3", "M4"),
+optmethod = "nlminb")
+print(indel3)
 #Compare with
-#indel3 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
-#brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = c(0.15, 0.25), toi = c(2, 3), 
-#zerocorrection = TRUE, rootprob = "maxlik", modelnames = c("M3", "M4"),
-#optmethod = "nlminb")
-#print(indel3)
+indel3 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 
+brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = c(0.15, 0.25), toi = c(2, 3), 
+zerocorrection = TRUE, rootprob = "maxlik", modelnames = c("M3", "M4"),
+optmethod = "nlminb")
+print(indel3)
 
 #Here, a vector of ancestor nodes specify the nodes which 
 #along with all their descendants have unique indel rates.
 
-#indel4 <- indelrates(datasource = "simulation", seed = 1, taxa = 10, 
-#brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = 0, toi = 1, 
-#bgtype = "ancestornodes", bg = c(15), zerocorrection = TRUE, rootprob = 
-#"maxlik", modelnames = c("M3", "M4"), optmethod = "nlminb")
-#print(indel4)
-#plot(indel4, model = "M4")
+indel4 <- indelrates(datasource = "simulation", seed = 1, taxa = 10, 
+brlensh = c(1, 8), mu = 1, nu = 5, phyl = 5000, pmiss = 0, toi = 1, 
+bgtype = "ancestornodes", bg = c(15), zerocorrection = TRUE, rootprob = 
+"maxlik", modelnames = c("M3", "M4"), optmethod = "nlminb")
+print(indel4)
+plot(indel4, model = "M4")
 
 #Above command prints two plots that can be obtained individually.
 #These are confidence intervals based on asymptotic normality 
 #of the maximum likelihood estimators. 
 #Different confidence interval levels can be specified with the cil option.
-#plotrates(indel4, model = "M4", ci = TRUE, cil = 95)
-#plotp(indel4, model = "M4", ci = TRUE, cil = 95)
+plotrates(indel4, model = "M4", ci = TRUE, cil = 95)
+plotp(indel4, model = "M4", ci = TRUE, cil = 95)
 
 #This is an alternate (more flexible but potentially less user-friendly) 
 #way to specify groups of nodes which have unique indel rates. 
 #A list of nodes is used here.
 
-#indel5 <- indelrates(verbose = TRUE, datasource = "simulation", seed = 1, 
-#taxa = 5, brlensh = c(1, 8), mu = 1, nu = 3, phyl = 5000, pmiss = 0, 
-#toi = 1, bgtype = "listofnodes", bg = list(c(7, 1, 2), 
-#c(6, 8, 3, 7, 9, 5, 4, 9)), zerocorrection = TRUE, rootprob = "maxlik",
-#modelnames = c("M1", "M2", "M3", "M4"), optmethod = "nlminb")
+indel5 <- indelrates(verbose = TRUE, datasource = "simulation", seed = 1, 
+taxa = 5, brlensh = c(1, 8), mu = 1, nu = 3, phyl = 5000, pmiss = 0, 
+toi = 1, bgtype = "listofnodes", bg = list(c(7, 1, 2), 
+c(6, 8, 3, 7, 9, 5, 4, 9)), zerocorrection = TRUE, rootprob = "maxlik",
+modelnames = c("M1", "M2", "M3", "M4"), optmethod = "nlminb")
 
 #Mycobacterium data example
-# data(mycobacteriumdata1)
-# indel_myco <- indelrates(verbose = TRUE, usertree = mycobacteriumdata1$tree, modelnames = "M4",
-#    userphyl = mycobacteriumdata1$phyl, matchtipstodata = TRUE, 
-#    datasource = "user", toi = c(3:4, 6:10), bgtype = "listofnodes", 
-#    zerocorrection = TRUE, rootprob = "stationary", optmethod = #"nlminb", 
-#    numhessian = TRUE, control = list(eval.max = 50000, iter.max = 50000))
+ data(mycobacteriumdata1)
+ indel_myco <- indelrates(verbose = TRUE, usertree = mycobacteriumdata1$tree, modelnames = "M4",
+    userphyl = mycobacteriumdata1$phyl, matchtipstodata = TRUE, 
+    datasource = "user", toi = c(3:4, 6:10), bgtype = "listofnodes", 
+    zerocorrection = TRUE, rootprob = "stationary", optmethod = "nlminb", 
+    numhessian = TRUE, control = list(eval.max = 50000, iter.max = 50000))
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

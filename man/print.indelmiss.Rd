@@ -18,15 +18,15 @@ Summary command for use on an object of class "indelmiss". Depending on the mode
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@mcmaster.ca}}
+\email{udang@binghamton.edu}}
 \seealso{
 See also \code{\link{indelrates}} and \code{\link{plot.indelmiss}}.
 }
 \examples{
-#indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
-#             mu = 1, nu = 3, phyl = 5000,  nmiss = c(200, 500), toi = c(1, 3), 
-#             zerocorrection = TRUE, 
-#             modelnames = c("M1", "M2", "M3", "M4"),
-#             optmethod = "nlminb")
-#print(indel)
+indel <- indelrates(datasource = "simulation", seed = 1, taxa = 5,
+             mu = 1, nu = 3, phyl = 5000,  pmiss = c(0.2, 0.5), toi = c(1, 3), 
+             zerocorrection = TRUE, 
+             modelnames = c("M1", "M2", "M3", "M4"),
+             optmethod = "nlminb")
+print(indel)
 }

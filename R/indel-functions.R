@@ -81,7 +81,8 @@ print.indelmiss <- function(x, ...) {
         cat("Number of genes estimated as missing corresponding to the missing data proportions is:\n ")
         print(round(x$results[[i]]$estmissgenes))
       }
-      cat("\nLoglikelihood for model", i, ":", -x$results[[i]]$objective, "\n")
+      if(x$optmethod=="nlminb") cat("\nLoglikelihood for model", i, ":", -x$results[[i]]$objective, "\n")
+      if(x$optmethod=="optim") cat("\nLoglikelihood for model", i, ":", -x$results[[i]]$value, "\n")
       cat("AIC           for model", i, ":", x$results[[i]]$AIC, "\n")
       cat("BIC           for model", i, ":", x$results[[i]]$BIC, "\n")
       cat("-----------------------------------\n")
@@ -270,6 +271,7 @@ indelrates <- function(verbose = FALSE, usertree = NULL, userphyl = NULL, matcht
   }
   zeroentr <- which(apply(datab, 1, check.equal, y = rep(0, nooftaxa)))
   ifelse(length(zeroentr) > 0, databp <- datab[-zeroentr, ], databp <- datab)
+  # databp <- datab
   
   w <- summary(as.factor(apply(databp, 1, paste, collapse = " ")), maxsum = nrow(databp))
   b <- attr(w, "names")
@@ -422,7 +424,7 @@ indelrates <- function(verbose = FALSE, usertree = NULL, userphyl = NULL, matcht
       rownames(res$parsep$rates) <- c("mu", "nu")
     }
     if (optmethod == "optim") {
-      res <- optim(par = modelop[[i]]$start, fn = totalll, model = i, lower = modelop[[i]]$lower, upper = modelop[[i]]$upper, hessian = TRUE, 
+      res <- optim(par = modelop[[i]]$start, fn = totalll, model = i, lower = modelop[[i]]$lower, upper = modelop[[i]]$upper, Lixi_in_totll = Lixi_init, hessian = TRUE, 
                    method = "L-BFGS-B", ...)
       res$parsep <- bamsp(res$par, i)
       rownames(res$parsep$rates) <- c("mu", "nu")
@@ -472,7 +474,7 @@ indelrates <- function(verbose = FALSE, usertree = NULL, userphyl = NULL, matcht
     cat("Check Hessian matrix estimate.\n")
     cat("Consider calculating bootstrap errors (make sure to use numhessian=FALSE).\n")
   }
-#  ifelse(length(toi) > 1, removed <- nmiss/colSums(databp[, toi ] == 1), removed <- nmiss/sum(databp[, toi ] == 1))
+  #  ifelse(length(toi) > 1, removed <- nmiss/colSums(databp[, toi ] == 1), removed <- nmiss/sum(databp[, toi ] == 1))
   # removed <- pmiss
   
   timetaken <- proc.time() - ptm

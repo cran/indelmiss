@@ -1,8 +1,8 @@
-f09fd9685c7b780f0c28ee130def9330 *DESCRIPTION
-2a7343719703da711c6d5da5b31bf9f0 *NAMESPACE
-a57ed3ac31307054896143e92c5dfb14 *NEWS
+c394229b21b10288f0ed81b6b5562e38 *DESCRIPTION
+90248a530d180d3b7b57ad1962e71880 *NAMESPACE
+957607615800db546c0b8b5e9a7fd53e *NEWS
 7b9db2b8e4fc65dd682f1f0d07e2f2e3 *R/RcppExports.R
-f923cd49bf5e567ca2169ffec368f169 *R/indel-functions.R
+ce6f44203b0705d966b439754088be10 *R/indel-functions.R
 cde4db1a55aa795b99035ba16f3b034a *data/gardnerelladata.rda
 03cd8b747fc273fcc90aa2b346f7163b *data/mycobacteriumdata1.rda
 9194ab610ca6bd01c1d1286634f2f4a8 *data/mycobacteriumdata2.rda
@@ -20,4 +20,4 @@ e6780432c5ea079954e04debf4b3117c *man/plotrates.Rd
 afca9a35b21bd109ff3611e226a9c752 *src/RcppExports.cpp
 9b707af61711ec62856d60a40b9bb1a3 *src/loopC.cpp
 e7c524d8f64fad4855a8f842aa11963e *tests/testthat.R
-ea018560a7459aa3ef7896611ca9a072 *tests/testthat/test_main.R
+389c7d19b8665e19b8ad61f7ecf36c1c *tests/testthat/test_main.R

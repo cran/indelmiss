@@ -1,6 +1,6 @@
 library(indelmiss)
 context("Model fit output testing")
-
+suppressWarnings(RNGversion("3.5.0"))
 #right value, right class
 test_that("Example 1", {
   skip_on_cran()

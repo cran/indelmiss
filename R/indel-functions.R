@@ -179,7 +179,7 @@ indelrates <- function(verbose = FALSE, usertree = NULL, userphyl = NULL, matcht
   alphabet <- c(0, 1)
   al <- length(alphabet)
   if (datasource == "user") {
-    if (ape::is.binary.tree(usertree) == FALSE | ape::is.rooted(usertree) == FALSE) {
+    if (ape::is.binary.phylo(usertree) == FALSE | ape::is.rooted(usertree) == FALSE) {
       usertree <- ape::multi2di(usertree)
       cat("Tree either not binary or not rooted.\n")
       cat("Transformed using multi2di from ape.", "\n")

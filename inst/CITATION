@@ -1,8 +1,13 @@
 citHeader("To cite indelmiss in publications, please use:")
 
-citEntry(entry = "Article",
+bibentry(bibtype = "Article",
   title        = "Gene insertion deletion analysis while accounting for possible missing data",
-  author       = personList(as.person("Utkarsh J. Dang"), as.person("Alison M. Devault"), as.person("Tatum D. Mortimer"), as.person("Caitlin S. Pepperell"), as.person("Hendrik N. Poinar"), as.person("G. Brian Golding")),
+  author      = c(person(given="Utkarsh J.", family="Dang", role=c("aut", "cre", "cph"), email="utkarshdang@cunet.carleton.ca"),
+  person(given="Alison M.", family="Devault", role=c("aut","dtc")),
+  person(given="Tatum D.", family="Mortimer", role=c("aut","dtc")),
+  person(given="Caitlin S.", family="Pepperell", role=c("aut","dtc")),
+  person(given="Hendrik N.", family="Poinar", role=c("aut","dtc")),
+  person(given="G. Brian", family="Golding", role=c("aut","fnd","cph","dtc"))),
   journal      = "Genetics",
   year         = "2016",
   volume       = "204",

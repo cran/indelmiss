@@ -17,10 +17,11 @@ Plotting command for use on an object of class "indelmiss". Will draw two plots:
   \item{cil}{Confidence interval level.}
   \item{\dots}{Any further commands to plot.}
 }
+\value{ Draws two plots: one with the estimates for the rates and the other for the "missingness" parameter. }
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@binghamton.edu}}
+\email{utkarshdang@cunet.carleton.ca}}
 \seealso{
 See also \code{\link{indelrates}}, \code{\link{plotrates}} and \code{\link{plotp}}.
 }

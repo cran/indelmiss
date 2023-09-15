@@ -15,10 +15,11 @@ Summary command for use on an object of class "indelmiss". Depending on the mode
   \item{x    }{An object of class "indelmiss".}
   \item{\dots}{Ignore this.}
 }
+\value{ Output summary information from the fit. }
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@binghamton.edu}}
+\email{utkarshdang@cunet.carleton.ca}}
 \seealso{
 See also \code{\link{indelrates}} and \code{\link{plot.indelmiss}}.
 }

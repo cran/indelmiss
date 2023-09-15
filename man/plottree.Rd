@@ -17,10 +17,11 @@ plottree(x, toilabel = TRUE, colors = NULL, ...)
   \item{colors}{Vector of colours the same length as length(x$bg). Note that these colours are used to colour the different branch groupings associated with unique insertion and/or deletion rates.}
   \item{\dots}{Any further commands to ape::plot.phylo.}
 }
+\value{ Plot the tree used the branches colored according to the different specified branch groupings (or clades) following unique rates. }
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@binghamton.edu}}
+\email{utkarshdang@cunet.carleton.ca}}
 \seealso{
 See also \code{\link{plot.indelmiss}} and \code{\link[ape]{plot.phylo}}.
 }

@@ -17,10 +17,11 @@ plotp(x, model, ci = TRUE, cil = 95, ...)
   \item{cil}{Confidence interval level.}
   \item{\dots}{Any further commands to plot.}
 }
+\value{ Plot estimates for the parameter that accounts for possible missing data. Called by plot.indelmiss. }
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@binghamton.edu}}
+\email{utkarshdang@cunet.carleton.ca}}
 \seealso{
 See also \code{\link{plot.indelmiss}}.
 }

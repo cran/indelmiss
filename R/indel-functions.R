@@ -399,6 +399,9 @@ indelrates <- function(verbose = FALSE, usertree = NULL, userphyl = NULL, matcht
   }
   missingguess[missingguess >= 1] <- 0
   ################Estimation################
+  old <- options()
+  on.exit(options(old))
+  
   options(digits = 7)
   if (rootprob == "maxlik") {
     modelop <- list(M1 = list(start = c(rep(indelinit, csp), 0.5), df = 1 * csp + 1, pb = 1, lower = c(rep(lowlim, csp), 0.01), upper = c(rep(uplim, csp), 0.99), model = "M1"), M2 = list(start = c(rep(indelinit, csp), missingguess, 0.5), df = 1 * csp + 1 * length(toi) + 1, pb = 1, lower = c(rep(lowlim, csp), rep(0, length(toi)), 0.01), upper = c(rep(uplim, csp), rep(1, length(toi)), 0.99), model = "M2"), M3 = list(start = c(rep(indelinit, csp), rep(indelinit, csp), 0.5), df = 2 * csp + 1, pb = 2, lower = c(rep(c(lowlim, lowlim), csp), 0.01), upper = c(rep(c(uplim, uplim), csp), 0.99), model = "M3"), M4 = list(start = c(rep(indelinit, csp), rep(indelinit, csp), missingguess, 0.5), df = 2 * csp + 1 * length(toi) +  1, pb = 2, lower = c(c(rep(c(lowlim, lowlim), csp)), rep(0, length(toi)), 0.01), upper = c(c(rep(c(uplim, uplim), csp)), rep(1, length(toi)), 0.99), model = "M4"))

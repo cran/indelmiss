@@ -68,7 +68,7 @@ All arguments used while calling the indelrates function are attached in a list.
 \author{
 Utkarsh J. Dang and G. Brian Golding
 
-\email{udang@binghamton.edu}}
+\email{utkarshdang@cunet.carleton.ca}}
 \seealso{
 See also \code{\link{print.indelmiss}}, \code{\link{plot.indelmiss}}, and \code{\link{plottree}}.
 }
@@ -95,7 +95,7 @@ print(indel_user)
 indel1 <- indelrates(verbose = TRUE, datasource = "simulation", 
 control = list(trace = 5))
 print(indel1)
-\dontrun{
+\donttest{
 #Estimate insertion/ deletion rates from gene presence/absence 
 #data simulated on a simulated five taxon tree.
 indel2 <- indelrates(datasource = "simulation", seed = 1, taxa = 5, 

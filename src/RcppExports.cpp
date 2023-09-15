@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // loopC
 NumericVector loopC(NumericVector nodelist, int al, IntegerVector x, IntegerVector x2, List pm, NumericMatrix Lix, int finind);
 RcppExport SEXP _indelmiss_loopC(SEXP nodelistSEXP, SEXP alSEXP, SEXP xSEXP, SEXP x2SEXP, SEXP pmSEXP, SEXP LixSEXP, SEXP finindSEXP) {
